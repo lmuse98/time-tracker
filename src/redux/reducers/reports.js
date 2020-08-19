@@ -30,8 +30,8 @@ function removeReport(state, action) {
   return {
     ...state,
     reports: [
-      ...state.tasks.slice(0, action.payload),
-      ...state.tasks.slice(action.payload + 1)
+      ...state.reports.slice(0, action.payload),
+      ...state.reports.slice(action.payload + 1)
     ],
     filteredReports: [
       ...state.filteredReports.slice(0, action.payload),
@@ -40,34 +40,9 @@ function removeReport(state, action) {
   };
 }
 
-function editTask(state, action) {
-  const index = state.tasks.findIndex(c => c.id === action.payload.id);
-  const indexF = state.filteredTasks.findIndex(c => c.id === action.payload.id);
 
-  return {
-    ...state,
-    tasks: [
-      ...state.users.slice(0, index),
-      action.payload,
-      ...state.users.slice(index + 1)
-    ],
-    filteredTasks: [
-      ...state.filteredTasks.slice(0, indexF),
-      action.payload,
-      ...state.filteredTasks.slice(indexF + 1)
-    ],
-  };
-}
+ 
 
-
-function filterTasks(state, action) {
-  return Object.assign({}, state, {
-    filteredTasks: state.tasks.filter(
-      user =>
-        user.name.toLowerCase().search(action.payload.toLowerCase()) !== -1
-    )
-  });
-}
 
 
 
