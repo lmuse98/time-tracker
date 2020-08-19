@@ -1,40 +1,41 @@
-import { ADD_TASKS, ADD_TASK , REMOVE_TASK, EDIT_TASK, FILTER_TASKS, } from '../actions';
+import { ADD_REPORTS, ADD_REPORT , REMOVE_REPORT,  } from '../actions';
 
 
 const initialState = {
-  tasks: [],
+  reports: [],
+  filteredReports: [],
 
   
 };
 
 
 
-function addTasks(state, action) {
+function addReports(state, action) {
   return {
     ...state,
-    tasks: [...state.tasks, ...action.payload],
-    filteredTasks: [...state.filteredTasks, ...action.payload]
+    reports: [...state.reports, ...action.payload],
+    filteredReports: [...state.filteredReports, ...action.payload]
   };
 }
 
-function addTask(state, action) {
+function addReport(state, action) {
   return {
     ...state,
-    tasks: [...state.tasks, action.payload],
-    filteredTasks: [...state.filteredTasks, action.payload]
+    reports: [...state.reports, action.payload],
+    filteredReports: [...state.filteredReports, action.payload]
   };
 }
 
-function removeTask(state, action) {
+function removeReport(state, action) {
   return {
     ...state,
-    tasks: [
+    reports: [
       ...state.tasks.slice(0, action.payload),
       ...state.tasks.slice(action.payload + 1)
     ],
-    filteredTasks: [
-      ...state.filteredTasks.slice(0, action.payload),
-      ...state.filteredTasks.slice(action.payload + 1)
+    filteredReports: [
+      ...state.filteredReports.slice(0, action.payload),
+      ...state.filteredReports.slice(action.payload + 1)
     ],
   };
 }
@@ -72,20 +73,14 @@ function filterTasks(state, action) {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case ADD_TASKS:
-      return addTasks(state, action);
+    case ADD_REPORTS:
+      return addReports(state, action);
 
-    case ADD_TASK:
-      return addTask(state, action);
+    case ADD_REPORT:
+      return addReport(state, action);
     
-    case REMOVE_TASK:
-      return removeTask(state, action);
-    
-    case EDIT_TASK:
-      return editTask(state, action);
-
-    case FILTER_TASKS:
-      return filterTasks(state, action);
+    case REMOVE_REPORT:
+      return removeReport(state, action);
 
     default:
       return state;
