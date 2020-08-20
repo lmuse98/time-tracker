@@ -4,6 +4,8 @@ import Modal from '../Modal/Modal';
 import {useDispatch } from 'react-redux';
 import { addReports} from "../../redux/actions";
 import { getReports} from "../../services";
+import Weekpicker from '../Weekpicker/Weekpicker';
+
 
 
 
@@ -25,6 +27,8 @@ const App = () => {
     <div className="App">
         <Main />
         <Modal />
+        <Weekpicker />
+        
 
     </div>
     
