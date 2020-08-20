@@ -1,11 +1,12 @@
 import React from 'react';
+import styles from './Modal.module.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import AddCircleIcon from '@material-ui/icons';
-import AddBttn from '../AddBttn/AddBttn';
 import Form from '../Form/Form';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import { StylesContext } from '@material-ui/styles';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -36,14 +37,10 @@ export default function TransitionsModal() {
   return (
     <div>
         
-
-      <button type="button" onClick={handleOpen}>
-        <AddBttn />
-            
+      <button className = {styles.bttn}  onClick={handleOpen}>
+        <AddCircleIcon />
+        
       </button>
-
-     
-
         
       <Modal
         aria-labelledby="transition-modal-title"

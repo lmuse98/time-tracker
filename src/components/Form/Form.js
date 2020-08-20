@@ -12,6 +12,7 @@ class Form extends React.Component {
       user: "",
       summary: "",
       report: "",
+      date: ""
     };
   }
 
@@ -46,7 +47,7 @@ class Form extends React.Component {
             type="text"
             name="user"
             onChange={this.onChangeHandler}
-            placeholder="user"
+            placeholder="User"
           />
           <input
             className={styles.summary}
@@ -62,6 +63,14 @@ class Form extends React.Component {
             onChange={this.onChangeHandler}
             placeholder="Report"
           />
+          <input
+          className = {styles.date}
+          type = "date"
+          name="date"
+          onChange= {this.onChangeHandler}
+          placeholder = "YYYY-MM-DD"
+          />
+
           <button type="submit" className={styles.send}>
             Send
           </button>

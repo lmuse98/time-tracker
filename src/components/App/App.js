@@ -1,6 +1,4 @@
 import React, {useEffect } from 'react';
-import styles from './App.module.css';
-import AddBttn from '../AddBttn/AddBttn';
 import Main from '../Main/Main';
 import Modal from '../Modal/Modal';
 import {useDispatch } from 'react-redux';
@@ -26,7 +24,6 @@ const App = () => {
   return (
     <div className="App">
         <Main />
-        <AddBttn />
         <Modal />
 
     </div>

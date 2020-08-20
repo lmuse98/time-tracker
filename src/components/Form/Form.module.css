@@ -1,6 +1,6 @@
 .user {
     position: absolute;
-    top: 38%;
+    top: 32%;
     left: 41.5%;
     background-color: rgba(var(--b3f,250,250,250),1);
     width: 250px;
@@ -10,7 +10,7 @@
 }
 .summary {
     position: absolute;
-    top: 45%;
+    top: 38%;
     left: 41.5%;
     background-color: rgba(var(--b3f,250,250,250),1);
     width: 250px;
@@ -20,10 +20,10 @@
 }
 .report {
     position: absolute;
-    top: 53%;
+    top: 44%;
     left: 41.5%;
     background-color: rgba(var(--b3f,250,250,250),1);
-    width: 310px;
+    width: 250px;
     height: 70px;
     border: 1px solid gainsboro;
     border-radius: 3px;
@@ -34,7 +34,7 @@
     width: 255px;
     height: 30px;
     position: absolute;
-    top: 65%;
+    top: 62%;
     left: 41.5%;
     box-sizing: border-box;
     background-color: grey;
@@ -43,3 +43,16 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:white;
 }
+.date {
+    
+        position: absolute;
+        top: 55%;
+        left: 41.5%;
+        background-color: rgba(var(--b3f,250,250,250),1);
+        width: 250px;
+        height: 30px;
+        border: 1px solid gainsboro;
+        border-radius: 3px;
+
+    
+} 

@@ -1,4 +1,4 @@
-import { ADD_REPORTS, ADD_REPORT , REMOVE_REPORT,  } from '../actions';
+import { ADD_REPORTS, ADD_REPORT , REMOVE_REPORT, FILTER_REPORTS } from '../actions';
 
 
 const initialState = {
@@ -24,6 +24,15 @@ function addReport(state, action) {
     reports: [...state.reports, action.payload],
     filteredReports: [...state.filteredReports, action.payload]
   };
+}
+
+function filterUsers(state, action) {
+  return Object.assign({}, state, {
+    filteredUsers: state.reports.filter(
+      reports =>
+        reports.date.search(action.payload)
+    )
+  });
 }
 
 function removeReport(state, action) {
@@ -56,6 +65,9 @@ export default function reducer(state = initialState, action) {
     
     case REMOVE_REPORT:
       return removeReport(state, action);
+
+      case FILTER_REPORTS:
+        return filterUsers(state, action);
 
     default:
       return state;
