@@ -11,6 +11,7 @@ import { createStyles } from "@material-ui/styles";
 // this guy required only on the docs site to work with dynamic date library
 import { makeJSDateObject } from "../../utils/helpers";
 import { IconButton, withStyles } from "@material-ui/core";
+import { getWeek } from 'date-fns';
 
 class CustomElements extends PureComponent {
   state = {
@@ -21,12 +22,10 @@ class CustomElements extends PureComponent {
     this.setState({ selectedDate: startOfWeek(makeJSDateObject(date)) });
   };
 
-  formatWeekSelectLabel = (date, invalidLabel) => {
-    let dateClone = makeJSDateObject(date);
+  formatWeekSelectLabel = (date, invalidLabel) => {    
+    let week = getWeek(date);
 
-    return dateClone && isValid(dateClone)
-      ? `Week of ${format(startOfWeek(dateClone), "MMM do")}`
-      : invalidLabel;
+    return week;
   };
 
   renderWrappedWeekDay = (date, selectedDate, dayInCurrentMonth) => {
