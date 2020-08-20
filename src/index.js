@@ -12,8 +12,6 @@ const store = configureStore(allReducers);
 
 ReactDOM.render(
   <MuiPickersUtilsProvider utils={DateFnsUtils}>
-
-
   <Provider store={store}>
     <App />
   </Provider>
