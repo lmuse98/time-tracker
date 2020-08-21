@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Form.module.css";
 import { connect } from "react-redux";
 import { postReport } from "../../services";
-
+import { getWeek } from 'date-fns';
 
 
 class Form extends React.Component {
@@ -12,7 +12,8 @@ class Form extends React.Component {
       user: "",
       summary: "",
       report: "",
-      date: ""
+      date: "",
+      week: ""
     };
   }
 
@@ -28,6 +29,8 @@ class Form extends React.Component {
       user: "",
       summary: "",
       report: "",
+      date:"",
+      week:""
     });
   };
 
@@ -37,7 +40,13 @@ class Form extends React.Component {
     this.setState({ [nam]: val });
     console.log(this.state);
   };
-
+  dateHandler = e => {
+    let nam = e.target.name;    
+    let val = e.target.value;
+    let brojTjedna = getWeek(new Date(val));
+    this.setState({ [nam]: val, week: brojTjedna });    
+    console.log(this.state);
+  };
   render() {
     return (
       <>
@@ -52,7 +61,7 @@ class Form extends React.Component {
           <input
             className={styles.summary}
             type="text"
-            name="Summary"
+            name="summary"
             onChange={this.onChangeHandler}
             placeholder="Summary"
           />
@@ -67,7 +76,7 @@ class Form extends React.Component {
           className = {styles.date}
           type = "date"
           name="date"
-          onChange= {this.onChangeHandler}
+          onChange= {this.dateHandler}
           placeholder = "YYYY-MM-DD"
           />
 
