@@ -127,7 +127,5 @@ const styles = createStyles(theme => ({
 
 
 
-
-export const TJEDAN = 52;
 export default withStyles(styles)(CustomElements);
 
