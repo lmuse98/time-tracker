@@ -1,10 +1,11 @@
-import React, {useEffect } from 'react';
+import React, {useEffect, useState } from 'react';
 import Main from '../Main/Main';
 import Modal from '../Modal/Modal';
 import {useDispatch } from 'react-redux';
 import { addReports} from "../../redux/actions";
 import { getReports} from "../../services";
-import Weekpicker from '../Weekpicker/Weekpicker';
+import { getWeek } from 'date-fns';
+import Header from '../Header/Header';
 
 
 
@@ -12,6 +13,7 @@ import Weekpicker from '../Weekpicker/Weekpicker';
 const App = () => {
   
   const dispatch = useDispatch();
+  const [currentWeek, setCurrentWeek] = useState(getWeek(new Date()))
 
   const fetchData = async () => {
     const json = await getReports();
@@ -25,9 +27,10 @@ const App = () => {
 
   return (
     <div className="App">
-        <Main />
+        <Main currentWeek={currentWeek}/>
         <Modal />
-        <Weekpicker />
+        <Header setCurrentWeek={setCurrentWeek}/>
+        
         
 
     </div>

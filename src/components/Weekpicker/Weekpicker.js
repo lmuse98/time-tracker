@@ -13,12 +13,16 @@ import { makeJSDateObject } from "../../utils/helpers";
 import { IconButton, withStyles } from "@material-ui/core";
 import { getWeek } from 'date-fns';
 
+
+
 class CustomElements extends PureComponent {
   state = {
     selectedDate: new Date(),
   };
 
   handleWeekChange = date => {
+    console.log("date", getWeek(date));
+    this.props.setCurrentWeek(getWeek(date));
     this.setState({ selectedDate: startOfWeek(makeJSDateObject(date)) });
   };
 
@@ -39,6 +43,8 @@ class CustomElements extends PureComponent {
     const dayIsBetween = isWithinInterval(dateClone, { start, end });
     const isFirstDay = isSameDay(dateClone, start);
     const isLastDay = isSameDay(dateClone, end);
+
+    
 
     const wrapperClassName = clsx({
       [classes.highlight]: dayIsBetween,
@@ -61,7 +67,7 @@ class CustomElements extends PureComponent {
   };
 
   render() {
-    const { selectedDate } = this.state;
+    const { selectedDate } = this.state;       
 
     return (
       <DatePicker
@@ -71,8 +77,10 @@ class CustomElements extends PureComponent {
         renderDay={this.renderWrappedWeekDay}
         labelFunc={this.formatWeekSelectLabel}
       />
+      
+      
     );
-  }
+  }   
 }
 
 const styles = createStyles(theme => ({
@@ -117,4 +125,9 @@ const styles = createStyles(theme => ({
   },
 }));
 
+
+
+
+export const TJEDAN = 52;
 export default withStyles(styles)(CustomElements);
+

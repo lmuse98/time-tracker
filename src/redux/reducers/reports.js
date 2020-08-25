@@ -13,7 +13,7 @@ const initialState = {
 function addReports(state, action) {
   return {
     ...state,
-    reports: [...state.reports, ...action.payload],
+    reports: [...action.payload],
     filteredReports: [...state.filteredReports, ...action.payload]
   };
 }
